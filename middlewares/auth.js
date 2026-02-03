@@ -1,8 +1,7 @@
-const jwt = require('jsonwebtoken');
+const jwt = require("jsonwebtoken")
 
-const secretCode = process.env.JWT_SECRET || 'your-secret-key';
 
-function auth(req, res, next) {
+module.exports = (req, res, next) => {
     const authorization = req.headers.authorization;
     if (!authorization) {
         return res.json({ "message": "Authorization missing" })
@@ -18,4 +17,3 @@ function auth(req, res, next) {
     }
 }
 
-module.exports = auth;
